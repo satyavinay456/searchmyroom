@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Landlord</title>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+      <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+
+<body>
+
+<!-- demo nav -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <a  href="{{url_for('tenant')}}">
+        <img class="logo_sz"  src="{{url_for('static',filename='img/logo.png')}}" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('tenant')}}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('bookmarks_properties')}}">My Bookmarks</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url_for('bookmarks_properties')}}">Property Info</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                  <button type=" button" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-log-out"></span> <a href="{{url_for('tenant_logout')}}">Log out </a>
+                  </button>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+<!--  -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <img style="height:300px;" class="card-img-top card_size" src="/static/{{property_dict['filename']}}" alt="Card image">
+      <div class="container">
+              <div class="span8">
+                <h4><small>Landlord Name: </small><br><span id="landlord_name">{{property_dict['landlord_name']}}</span></h4>
+                <h4><small>Email:</small> <br><span id="landlord_email">{{property_dict['landlord_email']}}</span></h4>
+
+              </div>
+</div>
+    </div>
+    <div class="col-7">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name of Property</th>
+            <th scope="col" id="property_name"> {{property_dict['property_name']}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Category </td>
+            <td>{{property_dict['property_category']}}</td>
+          </tr>
+          <tr>
+            <td>Average Rent</td>
+            <td>{{property_dict['property_average_rent']}}</td>
+          </tr>
+          <tr>
+            <td>state</td>
+            <td>{{property_dict['landlord_state']}}</td>
+          </tr>
+          <tr>
+            <td>City</td>
+            <td>{{property_dict['landlord_city']}}</td>
+          </tr>
+          <tr>
+            <td>Daily_breakfast</td>
+            <td>{{property_dict['Daily_breakfast']}}</td>
+          </tr>
+          <tr>
+            <td>Amenities</td>
+            <td>{{property_dict['property_amenities']}}</td>
+          </tr>
+          <tr>
+            <td>Total Rooms</td>
+            <td>{{property_dict['property_total_rooms']}}</td>
+          </tr>
+          <tr>
+            <td>Available Rooms</td>
+            <td>{{property_dict['property_available_rooms']}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <!--  main container end-->
+  <script  src="{{url_for('static',filename='js/category_clicks.js')}}"></script>
+  <script  src="{{url_for('static',filename='js/bookmarks.js')}}"></script>
+  <script  src="{{url_for('static',filename='js/filter_all.js')}}"></script>
+</body>
+</html>

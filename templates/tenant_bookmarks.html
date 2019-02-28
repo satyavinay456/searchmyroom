@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bookmarks</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+      <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+
+<body>
+
+
+<!-- demo nav -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <a  href="{{url_for('tenant')}}">
+        <img class="logo_sz" src="{{url_for('static',filename='img/logo.png')}}" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{url_for('tenant')}}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url_for('bookmarks_properties')}}">My Bookmarks</a>
+                </li>
+
+
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                  <button type="button" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-log-out"></span> <a href="{{url_for('tenant_logout')}}">Log out </a>
+      </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<!--  -->
+
+<div class="container-fluid">
+
+
+
+  <div class="row">
+    <!-- Filter -->
+    <div class="col-sm-2">
+
+          <!--  **********-->
+    </div> <!--  col-2 end-->
+
+    <!-- cards -->
+
+    <div class="col-sm-10" id="mkdiv">
+      <div class="row" id="cards_row">
+        {% for i in bookmarks_properties %}
+        <div class="card" id="main_card" style="width: 18rem;">
+
+          <img class="card-img-top card_size" src="{{url_for('static',filename=i['filename'])}}" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title">{{i['property_name']}}</h4>
+              <small class="card-text">Category: <span> {{i['property_category']}}</span> </small>
+              <p class="card-text">Average Rent <span>{{i['property_average_rent']}}</span> </p>
+              <small><a id="more_info"unique="{{i['unique_id']}}" class="card-link">more info</a></small>
+            {% if i['bookmarked'] == "yes" %}
+            <img id="{{i['unique_id']}}bookmarked" style="position:relative;top:28px;left:75%;" class="{{i['unique_id']}}bookmarked" src="{{url_for('static',filename='img/bookmarked.svg')}}" alt="">
+            <img id="{{i['unique_id']}}bookmark" style="position:relative;top:  28px;left:75%;display:none;" class="{{i['unique_id']}}bookmark" src="{{url_for('static',filename='img/bookmark.svg')}}" alt="">
+            {% else %}
+            <img id="{{i['unique_id']}}bookmark" style="position:relative;top:  28px;left:75%;" class="{{i['unique_id']}}bookmark" src="{{url_for('static',filename='img/bookmark.svg')}}" alt="">
+            <img id="{{i['unique_id']}}bookmarked" style="position:relative;top:28px;left:75%;display:none" class="{{i['unique_id']}}bookmarked" src="{{url_for('static',filename='img/bookmarked.svg')}}" alt="">
+            {% endif %}
+            </div>
+        </div>
+      {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>  <!-- row end -->
+
+</div>   <!--  main container end-->
+</body>
+</html>
+<script  src="{{url_for('static',filename='js/bookmarks.js')}}"></script>

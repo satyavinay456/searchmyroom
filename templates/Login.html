@@ -1,0 +1,71 @@
+<html>
+<head>
+<link rel="shortcut icon" href="{{url_for('static',filename='img/logo.png')}}">
+</head>
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+
+            <center><img class="logo_pos" src="{{url_for('static',filename='img/smr_logo.png')}}" alt=""></center>
+            <form class="form-signin" method="post" action="{{url_for('logging_in')}}">
+              <div class="form-label-group">
+                <input type="email" id="inputEmail"  name="email"class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputEmail">Email address</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+              </div>
+
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" value="Landlord" class="form-check-input" name="optradio">Landlord
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" value="Tenant" class="form-check-input" name="optradio">Tenant
+                </label>
+              </div>
+              <br><br>
+
+              <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="submit">Sign in</button>
+              </form>
+              <hr class="my-4">
+                <button type="button" onclick="window.location.href='/register'"class="btn btn-outline-secondary">Register</button>
+
+
+          </div>
+
+        </div>
+        {% with messages = get_flashed_messages(category_filter=["error"]) %}
+              {% if messages %}
+             {% for message in messages %}
+             <div id="danger_alert" class="alert alert-danger alert_positon" role="alert">
+              {{message}}
+            </div>
+            <script type="text/javascript">
+            setTimeout(function() {
+                $('#danger_alert').fadeOut('fast');
+            }, 5000);
+            </script>
+             {% endfor %}
+        {% endif %}
+        {% endwith %}
+        
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

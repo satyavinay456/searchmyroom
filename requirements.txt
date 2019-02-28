@@ -1,0 +1,5 @@
+Flask-Uploads
+Flask
+pymongo
+bcrypt
+dnspython 
