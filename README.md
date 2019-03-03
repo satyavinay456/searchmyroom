@@ -22,4 +22,8 @@ Linux:
 Public DNS of AWS :
 Goto: http://ec2-18-206-203-63.compute-1.amazonaws.com/
 
+I had also deployed it on heroku:
+https://searchmyroom.herokuapp.com/
+
 contact: satyavinay456@gmail.com
+
