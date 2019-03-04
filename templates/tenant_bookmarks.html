@@ -70,7 +70,7 @@
               <h4 class="card-title">{{i['property_name']}}</h4>
               <small class="card-text">Category: <span> {{i['property_category']}}</span> </small>
               <p class="card-text">Average Rent <span>{{i['property_average_rent']}}</span> </p>
-              <small><a id="more_info"unique="{{i['unique_id']}}" class="card-link">more info</a></small>
+              <small style="cursor:pointer;"><a id="more_info"unique="{{i['unique_id']}}" class="card-link">more info</a></small>
             {% if i['bookmarked'] == "yes" %}
             <img id="{{i['unique_id']}}bookmarked" style="position:relative;top:28px;left:75%;" class="{{i['unique_id']}}bookmarked" src="{{url_for('static',filename='img/bookmarked.svg')}}" alt="">
             <img id="{{i['unique_id']}}bookmark" style="position:relative;top:  28px;left:75%;display:none;" class="{{i['unique_id']}}bookmark" src="{{url_for('static',filename='img/bookmark.svg')}}" alt="">
