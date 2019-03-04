@@ -24,7 +24,6 @@ Goto: http://ec2-18-206-203-63.compute-1.amazonaws.com/
 
 I had also deployed it on heroku:
 https://searchmyroom.herokuapp.com/
-(since i was using using free tier,my instance may sleep after 30 min of inactivity. so don't worry if the link doesn't open)
 
 contact: satyavinay456@gmail.com
 
