@@ -19,9 +19,6 @@ In windows:
 Linux:
 =>python3 main.py
 
-Public DNS of AWS :
-Goto: http://ec2-18-206-203-63.compute-1.amazonaws.com/
-
 I had also deployed it on heroku:
 https://searchmyroom.herokuapp.com/
 
